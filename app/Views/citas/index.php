@@ -16,7 +16,8 @@
                     <i class="bi bi-plus-circle me-1 text-primary"></i> Agendar Cita
                 </h5>
             </div>
-            <form action="<?= base_url('citas/guardar') ?>" method="post">
+            <form action="<?= site_url('citas/guardar') ?>" method="post">
+                <?= csrf_field() ?>
                 <div class="card-body">
                     <div class="mb-3">
                         <label for="paciente" class="form-label"><i class="bi bi-person me-1 text-secondary"></i> Paciente:</label>
@@ -76,7 +77,7 @@
                                         </span>
                                     </td>
                                     <td class="text-center">
-                                        <a href="<?= base_url('citas/eliminar/' . $c['id']) ?>" 
+                                        <a href="<?= site_url('citas/eliminar/' . $c['id']) ?>" 
                                            class="btn btn-danger btn-sm" 
                                            onclick="return confirm('¿Está seguro de eliminar esta cita?')">
                                             <i class="bi bi-trash"></i>

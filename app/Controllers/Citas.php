@@ -30,13 +30,13 @@ class Citas extends BaseController
             'fecha'    => $this->request->getPost('fecha'),
         ]);
 
-        return redirect()->to(base_url('citas'));
+        return redirect()->to('citas');
     }
 
     // Eliminar cita
     public function eliminar($id)
     {
         $this->citaModel->delete($id);
-        return redirect()->to(base_url('citas'));
+        return redirect()->to('citas');
     }
 }

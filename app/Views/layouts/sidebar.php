@@ -6,7 +6,7 @@ $currentSegment = $uri->getSegment(1) ?? '';
 <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
     <!-- Brand Link -->
     <div class="sidebar-brand">
-        <a href="<?= base_url('citas') ?>" class="brand-link">
+        <a href="<?= site_url('citas') ?>" class="brand-link">
             <i class="bi bi-hospital fs-3 me-2 text-info"></i>
             <span class="brand-text font-weight-light">CI4 System v4</span>
         </a>
@@ -21,7 +21,7 @@ $currentSegment = $uri->getSegment(1) ?? '';
 
                 <!-- Módulo Citas -->
                 <li class="nav-item">
-                    <a href="<?= base_url('citas') ?>" class="nav-link <?= ($currentSegment == 'citas' || $currentSegment == '') ? 'active' : '' ?>">
+                    <a href="<?= site_url('citas') ?>" class="nav-link <?= ($currentSegment == 'citas' || $currentSegment == '') ? 'active' : '' ?>">
                         <i class="nav-icon bi bi-calendar-event"></i>
                         <p>Control de Citas</p>
                     </a>

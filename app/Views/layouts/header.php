@@ -10,7 +10,7 @@
                 </a>
             </li>
             <li class="nav-item d-none d-md-block">
-                <a href="<?= base_url('citas') ?>" class="nav-link">Inicio</a>
+                <a href="<?= site_url('citas') ?>" class="nav-link">Inicio</a>
             </li>
         </ul>
         <!-- End navbar links -->

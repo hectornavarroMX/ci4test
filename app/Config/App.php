@@ -16,7 +16,28 @@ class App extends BaseConfig
      *
      * E.g., http://example.com/
      */
-    public string $baseURL = 'http://localhost:8080/';
+    public string $baseURL = '';
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        // Autodetectar URL Base dinámicamente si no está definida o si apunta a localhost
+        if (empty($this->baseURL) || str_contains($this->baseURL, 'localhost')) {
+            if (isset($_SERVER['HTTP_HOST'])) {
+                $isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') 
+                    || (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443)
+                    || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https');
+                $protocol = $isHttps ? 'https' : 'http';
+
+                $scriptDir = rtrim(dirname($_SERVER['SCRIPT_NAME'] ?? ''), '/\\');
+                if ($scriptDir === '' || $scriptDir === '.') {
+                    $scriptDir = '';
+                }
+                $this->baseURL = $protocol . '://' . $_SERVER['HTTP_HOST'] . $scriptDir . '/';
+            }
+        }
+    }
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.

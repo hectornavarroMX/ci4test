@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= $this->renderSection('title') ?> - Sistema CI4 v4.10</title>
 
-    <!-- Bootstrap Icons (Local) -->
-    <link rel="stylesheet" href="<?= base_url('assets/bootstrap-icons/bootstrap-icons.min.css') ?>">
-    <!-- Bootstrap 5 CSS (Local) -->
+    <!-- Bootstrap Icons (CDN directo para máxima compatibilidad de fuentes en hosting) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap 5 CSS (Local / Fallback) -->
     <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>">
-    <!-- OverlayScrollbars CSS (Local) -->
+    <!-- OverlayScrollbars CSS (Local / Fallback) -->
     <link rel="stylesheet" href="<?= base_url('assets/css/overlayscrollbars.min.css') ?>">
-    <!-- AdminLTE 4.10.0 CSS (Local) -->
+    <!-- AdminLTE 4.10.0 CSS (Local / Fallback) -->
     <link rel="stylesheet" href="<?= base_url('assets/css/adminlte.min.css') ?>">
 
     <?= $this->renderSection('styles') ?>
@@ -36,7 +39,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-end">
-                            <li class="breadcrumb-item"><a href="<?= base_url('citas') ?>">Inicio</a></li>
+                            <li class="breadcrumb-item"><a href="<?= site_url('citas') ?>">Inicio</a></li>
                             <li class="breadcrumb-item active" aria-current="page"><?= $this->renderSection('breadcrumb') ?></li>
                         </ol>
                     </div>
@@ -61,7 +64,7 @@
 </div>
 <!-- ./app-wrapper -->
 
-<!-- REQUIRED SCRIPTS (Local) -->
+<!-- REQUIRED SCRIPTS -->
 <!-- Bootstrap 5 Bundle (includes Popper) -->
 <script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>
 <!-- OverlayScrollbars JS -->
